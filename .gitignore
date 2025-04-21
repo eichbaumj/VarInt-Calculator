@@ -53,4 +53,8 @@ varint_calculator.py
 icon.py
 
 # Git helper scripts
-push_to_github.bat 
+push_to_github.bat
+
+# Build and installer scripts
+build_and_run.bat
+VarIntCalculator_Setup.iss 
