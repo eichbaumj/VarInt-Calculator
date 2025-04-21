@@ -46,4 +46,11 @@ bld/
 Thumbs.db
 *.bak
 *.cache
-*.log 
+*.log
+
+# Python reference file
+varint_calculator.py
+icon.py
+
+# Git helper scripts
+push_to_github.bat 
