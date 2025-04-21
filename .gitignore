@@ -1,0 +1,49 @@
+# .NET build output directories
+bin/
+obj/
+
+# Visual Studio files
+.vs/
+*.user
+*.userosscache
+*.suo
+*.userprefs
+*.dbmdl
+*.dbproj.schemaview
+*.pfx
+*.publishsettings
+**/Properties/launchSettings.json
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+
+# MSTest test Results
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+
+# NuGet Packages
+*.nupkg
+# The packages folder can be ignored because of Package Restore
+**/packages/*
+# except build/, which is used as an MSBuild target.
+!**/packages/build/
+
+# Installer output
+*.exe
+!VarIntCalculator_Setup.exe
+
+# Others
+.DS_Store
+Thumbs.db
+*.bak
+*.cache
+*.log 

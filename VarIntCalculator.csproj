@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net9.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="icon.ico" />
+    <None Remove="logo.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="icon.ico" />
+    <Resource Include="logo.png" />
+  </ItemGroup>
+
+</Project> 

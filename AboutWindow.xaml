@@ -1,0 +1,84 @@
+<Window x:Class="VarIntCalculator.AboutWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:VarIntCalculator"
+        mc:Ignorable="d"
+        Title="About" Height="500" Width="500" 
+        ResizeMode="NoResize" 
+        WindowStartupLocation="CenterOwner" 
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Transparent">
+    <Border BorderThickness="1" BorderBrush="#555555">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="36"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <!-- Header bar -->
+            <Grid Grid.Row="0" Background="#0078D7">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="10,0,0,0">
+                    <TextBlock Text="About VarInt Calculator" FontSize="14" Foreground="White"/>
+                </StackPanel>
+                <Button Content="✕" Width="36" Height="36" HorizontalAlignment="Right" 
+                        Background="Transparent" Foreground="White" BorderThickness="0" 
+                        Click="CloseButton_Click"/>
+            </Grid>
+
+            <!-- Logo and Product Name -->
+            <Grid Grid.Row="1" Background="#121E2B">
+                <StackPanel Margin="20">
+                    <Image Source="/logo.png" Width="400" Height="58" Stretch="Uniform" Margin="0,20,0,30"/>
+                    <TextBlock Text="VarInt Calculator v3.0" 
+                           FontSize="18" Foreground="White" 
+                           HorizontalAlignment="Center" 
+                           Margin="0,0,0,20"/>
+                </StackPanel>
+            </Grid>
+
+            <!-- Copyright -->
+            <Grid Grid.Row="2" Background="#1A2837">
+                <TextBlock Text="© 2025 Elusive Data" 
+                       Foreground="White" 
+                       HorizontalAlignment="Center"
+                       Margin="0,15,0,15"/>
+            </Grid>
+
+            <!-- Contact Info -->
+            <Grid Grid.Row="3" Background="#1A2837">
+                <TextBlock HorizontalAlignment="Center" Margin="0,0,0,15">
+                    <Run Text="www.elusivedata.io" Foreground="White"/>
+                    <Run Text=" | " Foreground="White"/>
+                    <Run Text="support@elusivedata.io" Foreground="White"/>
+                </TextBlock>
+            </Grid>
+
+            <!-- Disclaimer -->
+            <Grid Grid.Row="4" Background="#121E2B">
+                <ScrollViewer Margin="20,15,20,15" VerticalScrollBarVisibility="Auto">
+                    <TextBlock TextWrapping="Wrap" Foreground="White" TextAlignment="Justify" LineHeight="20">
+                        <Run Text="DISCLAIMER: This software is provided 'as is' without warranty of any kind. Elusive Data is not responsible for the accuracy, completeness, or reliability of any information extracted or processed by this tool. Users should independently verify all results before taking any action based on them. This software is designed as an aid for forensic analysis and is not a substitute for professional judgment or expertise."/>
+                    </TextBlock>
+                </ScrollViewer>
+            </Grid>
+
+            <!-- OK Button -->
+            <Grid Grid.Row="5" Background="#121E2B">
+                <Button Content="OK" 
+                    Width="100" Height="30" 
+                    HorizontalAlignment="Center" 
+                    Margin="0,10,0,20"
+                    Background="#F37934"
+                    Foreground="White"
+                    Click="CloseButton_Click" />
+            </Grid>
+        </Grid>
+    </Border>
+</Window> 
