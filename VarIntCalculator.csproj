@@ -7,16 +7,43 @@
     <UseWPF>true</UseWPF>
     <ImplicitUsings>enable</ImplicitUsings>
     <ApplicationIcon>icon.ico</ApplicationIcon>
+    <RootNamespace>VarIntCalculator</RootNamespace>
+    <AssemblyName>VarIntCalculator</AssemblyName>
+
+    <Version>4.0.0</Version>
+    <AssemblyVersion>4.0.0.0</AssemblyVersion>
+    <FileVersion>4.0.0.0</FileVersion>
+    <Company>Elusive Data</Company>
+    <Product>Varint Calculator</Product>
+    <!-- Task Manager and Explorer show the title; no commit hash in the product version. -->
+    <AssemblyTitle>Varint Calculator</AssemblyTitle>
+    <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
+    <Copyright>Copyright © 2025 Collara Works AB, trading as Elusive Data</Copyright>
+    <Description>Decodes and encodes SQLite and protobuf varints.</Description>
   </PropertyGroup>
+
+  <!-- The test project and the oracle tooling live inside this folder; keep them out of the app. -->
+  <ItemGroup>
+    <Compile Remove="VarIntCalculator.Tests\**" />
+    <None Remove="VarIntCalculator.Tests\**" />
+    <Page Remove="VarIntCalculator.Tests\**" />
+    <Compile Remove="tools\**" />
+    <None Remove="tools\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MaterialDesignThemes" Version="4.9.0" />
+  </ItemGroup>
 
   <ItemGroup>
     <None Remove="icon.ico" />
-    <None Remove="logo.png" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Resource Include="icon.ico" />
-    <Resource Include="logo.png" />
+    <Resource Include="Images\*.png" />
+    <!-- Be Vietnam Pro (headings), Inter (body) and Saira (labels, keys): the Firefly type set. -->
+    <Resource Include="Fonts\*.ttf" />
+    <Resource Include="Fonts\*.otf" />
+    <!-- The fonts are SIL OFL; their licenses ship beside the exe. -->
+    <None Update="Fonts\OFL-*.txt" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
 
-</Project> 
+</Project>

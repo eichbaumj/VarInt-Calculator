@@ -37,9 +37,8 @@ bld/
 # except build/, which is used as an MSBuild target.
 !**/packages/build/
 
-# Installer output
+# Executables, including the 3.0 installer (releases carry the installers)
 *.exe
-!VarIntCalculator_Setup.exe
 
 # Others
 .DS_Store
@@ -57,4 +56,9 @@ push_to_github.bat
 
 # Build and installer scripts
 build_and_run.bat
-VarIntCalculator_Setup.iss 
+
+# Installer output (setup\Build-Installer.ps1)
+Installer/ 
+# Review previews written by the setup scripts
+setup/art/preview-*.png
+setup/art/icon-preview.png

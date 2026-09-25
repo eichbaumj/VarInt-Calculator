@@ -1,0 +1,280 @@
+{
+ "meta": {
+  "generator": "tools/oracle/make_vectors.py",
+  "sqlite": "3.50.4",
+  "protobuf": "7.34.0 (upb)",
+  "python": "3.13.7"
+ },
+ "vectors": [
+  {
+   "field": 1,
+   "wireType": 0,
+   "tag": "8"
+  },
+  {
+   "field": 1,
+   "wireType": 1,
+   "tag": "9"
+  },
+  {
+   "field": 1,
+   "wireType": 2,
+   "tag": "10"
+  },
+  {
+   "field": 1,
+   "wireType": 3,
+   "tag": "11"
+  },
+  {
+   "field": 1,
+   "wireType": 4,
+   "tag": "12"
+  },
+  {
+   "field": 1,
+   "wireType": 5,
+   "tag": "13"
+  },
+  {
+   "field": 2,
+   "wireType": 0,
+   "tag": "16"
+  },
+  {
+   "field": 2,
+   "wireType": 1,
+   "tag": "17"
+  },
+  {
+   "field": 2,
+   "wireType": 2,
+   "tag": "18"
+  },
+  {
+   "field": 2,
+   "wireType": 3,
+   "tag": "19"
+  },
+  {
+   "field": 2,
+   "wireType": 4,
+   "tag": "20"
+  },
+  {
+   "field": 2,
+   "wireType": 5,
+   "tag": "21"
+  },
+  {
+   "field": 15,
+   "wireType": 0,
+   "tag": "120"
+  },
+  {
+   "field": 15,
+   "wireType": 1,
+   "tag": "121"
+  },
+  {
+   "field": 15,
+   "wireType": 2,
+   "tag": "122"
+  },
+  {
+   "field": 15,
+   "wireType": 3,
+   "tag": "123"
+  },
+  {
+   "field": 15,
+   "wireType": 4,
+   "tag": "124"
+  },
+  {
+   "field": 15,
+   "wireType": 5,
+   "tag": "125"
+  },
+  {
+   "field": 16,
+   "wireType": 0,
+   "tag": "128"
+  },
+  {
+   "field": 16,
+   "wireType": 1,
+   "tag": "129"
+  },
+  {
+   "field": 16,
+   "wireType": 2,
+   "tag": "130"
+  },
+  {
+   "field": 16,
+   "wireType": 3,
+   "tag": "131"
+  },
+  {
+   "field": 16,
+   "wireType": 4,
+   "tag": "132"
+  },
+  {
+   "field": 16,
+   "wireType": 5,
+   "tag": "133"
+  },
+  {
+   "field": 2047,
+   "wireType": 0,
+   "tag": "16376"
+  },
+  {
+   "field": 2047,
+   "wireType": 1,
+   "tag": "16377"
+  },
+  {
+   "field": 2047,
+   "wireType": 2,
+   "tag": "16378"
+  },
+  {
+   "field": 2047,
+   "wireType": 3,
+   "tag": "16379"
+  },
+  {
+   "field": 2047,
+   "wireType": 4,
+   "tag": "16380"
+  },
+  {
+   "field": 2047,
+   "wireType": 5,
+   "tag": "16381"
+  },
+  {
+   "field": 2048,
+   "wireType": 0,
+   "tag": "16384"
+  },
+  {
+   "field": 2048,
+   "wireType": 1,
+   "tag": "16385"
+  },
+  {
+   "field": 2048,
+   "wireType": 2,
+   "tag": "16386"
+  },
+  {
+   "field": 2048,
+   "wireType": 3,
+   "tag": "16387"
+  },
+  {
+   "field": 2048,
+   "wireType": 4,
+   "tag": "16388"
+  },
+  {
+   "field": 2048,
+   "wireType": 5,
+   "tag": "16389"
+  },
+  {
+   "field": 19000,
+   "wireType": 0,
+   "tag": "152000"
+  },
+  {
+   "field": 19000,
+   "wireType": 1,
+   "tag": "152001"
+  },
+  {
+   "field": 19000,
+   "wireType": 2,
+   "tag": "152002"
+  },
+  {
+   "field": 19000,
+   "wireType": 3,
+   "tag": "152003"
+  },
+  {
+   "field": 19000,
+   "wireType": 4,
+   "tag": "152004"
+  },
+  {
+   "field": 19000,
+   "wireType": 5,
+   "tag": "152005"
+  },
+  {
+   "field": 262143,
+   "wireType": 0,
+   "tag": "2097144"
+  },
+  {
+   "field": 262143,
+   "wireType": 1,
+   "tag": "2097145"
+  },
+  {
+   "field": 262143,
+   "wireType": 2,
+   "tag": "2097146"
+  },
+  {
+   "field": 262143,
+   "wireType": 3,
+   "tag": "2097147"
+  },
+  {
+   "field": 262143,
+   "wireType": 4,
+   "tag": "2097148"
+  },
+  {
+   "field": 262143,
+   "wireType": 5,
+   "tag": "2097149"
+  },
+  {
+   "field": 536870911,
+   "wireType": 0,
+   "tag": "4294967288"
+  },
+  {
+   "field": 536870911,
+   "wireType": 1,
+   "tag": "4294967289"
+  },
+  {
+   "field": 536870911,
+   "wireType": 2,
+   "tag": "4294967290"
+  },
+  {
+   "field": 536870911,
+   "wireType": 3,
+   "tag": "4294967291"
+  },
+  {
+   "field": 536870911,
+   "wireType": 4,
+   "tag": "4294967292"
+  },
+  {
+   "field": 536870911,
+   "wireType": 5,
+   "tag": "4294967293"
+  }
+ ]
+}

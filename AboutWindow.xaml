@@ -1,84 +1,114 @@
 <Window x:Class="VarIntCalculator.AboutWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:VarIntCalculator"
-        mc:Ignorable="d"
-        Title="About" Height="500" Width="500" 
-        ResizeMode="NoResize" 
-        WindowStartupLocation="CenterOwner" 
-        WindowStyle="None"
-        AllowsTransparency="True"
-        Background="Transparent">
-    <Border BorderThickness="1" BorderBrush="#555555">
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="36"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
+        Title="About Varint Calculator"
+        Width="440" SizeToContent="Height"
+        WindowStartupLocation="CenterOwner"
+        ResizeMode="NoResize"
+        ShowInTaskbar="False"
+        Background="{DynamicResource SheetBackgroundBrush}"
+        FontFamily="{StaticResource BodyFont}"
+        UseLayoutRounding="True">
 
-            <!-- Header bar -->
-            <Grid Grid.Row="0" Background="#0078D7">
-                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="10,0,0,0">
-                    <TextBlock Text="About VarInt Calculator" FontSize="14" Foreground="White"/>
+    <!-- Firefly's About chrome: the blue-wave banner is the caption bar. -->
+    <WindowChrome.WindowChrome>
+        <WindowChrome CaptionHeight="176"
+                      ResizeBorderThickness="0"
+                      CornerRadius="0"
+                      GlassFrameThickness="0,0,0,1"
+                      UseAeroCaptionButtons="False"/>
+    </WindowChrome.WindowChrome>
+
+    <Window.Resources>
+        <!-- The blue wave, as Firefly's About draws it: two horizontal color profiles (the
+             artwork's top and bottom edges) crossfaded top to bottom. -->
+        <LinearGradientBrush x:Key="WaveTopBrush" StartPoint="0,0" EndPoint="1,0">
+            <GradientStop Color="#00148E" Offset="0.00"/>
+            <GradientStop Color="#0024B9" Offset="0.10"/>
+            <GradientStop Color="#1953E0" Offset="0.18"/>
+            <GradientStop Color="#4199F1" Offset="0.28"/>
+            <GradientStop Color="#134CE6" Offset="0.40"/>
+            <GradientStop Color="#001FAD" Offset="0.52"/>
+            <GradientStop Color="#0635CB" Offset="0.64"/>
+            <GradientStop Color="#2F78ED" Offset="0.78"/>
+            <GradientStop Color="#3E94EF" Offset="0.90"/>
+            <GradientStop Color="#439CF1" Offset="1.00"/>
+        </LinearGradientBrush>
+        <LinearGradientBrush x:Key="WaveBottomBrush" StartPoint="0,0" EndPoint="1,0">
+            <GradientStop Color="#0028C8" Offset="0.00"/>
+            <GradientStop Color="#0018A0" Offset="0.10"/>
+            <GradientStop Color="#0023B9" Offset="0.18"/>
+            <GradientStop Color="#1046DC" Offset="0.28"/>
+            <GradientStop Color="#144DE5" Offset="0.40"/>
+            <GradientStop Color="#154DDB" Offset="0.52"/>
+            <GradientStop Color="#2A6FE2" Offset="0.64"/>
+            <GradientStop Color="#56C1F5" Offset="0.78"/>
+            <GradientStop Color="#65DBF7" Offset="0.90"/>
+            <GradientStop Color="#55BEF6" Offset="1.00"/>
+        </LinearGradientBrush>
+        <LinearGradientBrush x:Key="WaveCrossfadeMask" StartPoint="0,0" EndPoint="0,1">
+            <GradientStop Color="#00000000" Offset="0.00"/>
+            <GradientStop Color="#40000000" Offset="0.25"/>
+            <GradientStop Color="#8A000000" Offset="0.50"/>
+            <GradientStop Color="#CC000000" Offset="0.75"/>
+            <GradientStop Color="#FF000000" Offset="1.00"/>
+        </LinearGradientBrush>
+    </Window.Resources>
+
+    <StackPanel>
+        <Grid Height="176">
+            <Rectangle Fill="{StaticResource WaveTopBrush}"/>
+            <Rectangle Fill="{StaticResource WaveBottomBrush}" OpacityMask="{StaticResource WaveCrossfadeMask}"/>
+            <StackPanel VerticalAlignment="Center">
+                <Image Source="/VarIntCalculator;component/Images/elusive-data-wordmark.png" Height="17" HorizontalAlignment="Center"
+                       RenderOptions.BitmapScalingMode="HighQuality" Margin="0,0,0,14"/>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <TextBlock Text="Varint" FontFamily="{StaticResource LabelFont}" FontSize="26" FontWeight="SemiBold"
+                               Foreground="White"/>
+                    <TextBlock Text="Calculator" FontFamily="{StaticResource LabelFont}" FontSize="26" FontWeight="Normal"
+                               Foreground="White" Margin="6,0,0,0"/>
                 </StackPanel>
-                <Button Content="✕" Width="36" Height="36" HorizontalAlignment="Right" 
-                        Background="Transparent" Foreground="White" BorderThickness="0" 
-                        Click="CloseButton_Click"/>
-            </Grid>
-
-            <!-- Logo and Product Name -->
-            <Grid Grid.Row="1" Background="#121E2B">
-                <StackPanel Margin="20">
-                    <Image Source="/logo.png" Width="400" Height="58" Stretch="Uniform" Margin="0,20,0,30"/>
-                    <TextBlock Text="VarInt Calculator v3.0" 
-                           FontSize="18" Foreground="White" 
-                           HorizontalAlignment="Center" 
-                           Margin="0,0,0,20"/>
+                <!-- The calculator belongs to the Firefly family: the Firefly mark, then the line. -->
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,7,0,0">
+                    <Image Source="/VarIntCalculator;component/Images/firefly-mark.png" Height="20" VerticalAlignment="Center"
+                           RenderOptions.BitmapScalingMode="HighQuality" Margin="0,0,7,0"/>
+                    <TextBlock Text="Part of Elusive Data Firefly&#x2122;" FontSize="13" Foreground="White"
+                               VerticalAlignment="Center"/>
                 </StackPanel>
-            </Grid>
-
-            <!-- Copyright -->
-            <Grid Grid.Row="2" Background="#1A2837">
-                <TextBlock Text="© 2025 Elusive Data" 
-                       Foreground="White" 
-                       HorizontalAlignment="Center"
-                       Margin="0,15,0,15"/>
-            </Grid>
-
-            <!-- Contact Info -->
-            <Grid Grid.Row="3" Background="#1A2837">
-                <TextBlock HorizontalAlignment="Center" Margin="0,0,0,15">
-                    <Run Text="www.elusivedata.io" Foreground="White"/>
-                    <Run Text=" | " Foreground="White"/>
-                    <Run Text="support@elusivedata.io" Foreground="White"/>
-                </TextBlock>
-            </Grid>
-
-            <!-- Disclaimer -->
-            <Grid Grid.Row="4" Background="#121E2B">
-                <ScrollViewer Margin="20,15,20,15" VerticalScrollBarVisibility="Auto">
-                    <TextBlock TextWrapping="Wrap" Foreground="White" TextAlignment="Justify" LineHeight="20">
-                        <Run Text="DISCLAIMER: This software is provided 'as is' without warranty of any kind. Elusive Data is not responsible for the accuracy, completeness, or reliability of any information extracted or processed by this tool. Users should independently verify all results before taking any action based on them. This software is designed as an aid for forensic analysis and is not a substitute for professional judgment or expertise."/>
-                    </TextBlock>
-                </ScrollViewer>
-            </Grid>
-
-            <!-- OK Button -->
-            <Grid Grid.Row="5" Background="#121E2B">
-                <Button Content="OK" 
-                    Width="100" Height="30" 
-                    HorizontalAlignment="Center" 
-                    Margin="0,10,0,20"
-                    Background="#F37934"
-                    Foreground="White"
-                    Click="CloseButton_Click" />
-            </Grid>
+                <TextBlock x:Name="VersionText" FontSize="13" FontWeight="SemiBold" Foreground="White"
+                           HorizontalAlignment="Center" Margin="0,8,0,0"/>
+            </StackPanel>
         </Grid>
-    </Border>
-</Window> 
+
+        <StackPanel Margin="32,22,32,0">
+            <TextBlock Text="Copyright © 2025 Collara Works AB, trading as Elusive Data" FontSize="13"
+                       Foreground="{DynamicResource PrimaryTextBrush}" HorizontalAlignment="Center" TextWrapping="Wrap"
+                       TextAlignment="Center"/>
+            <TextBlock Text="All Rights Reserved" FontSize="13" Foreground="{DynamicResource PrimaryTextBrush}"
+                       HorizontalAlignment="Center" Margin="0,3,0,14"/>
+
+            <TextBlock HorizontalAlignment="Center" FontSize="13">
+                <Hyperlink NavigateUri="mailto:support@elusivedata.io" RequestNavigate="Link_RequestNavigate"
+                           Foreground="{DynamicResource AccentTextBrush}">support@elusivedata.io</Hyperlink>
+            </TextBlock>
+            <TextBlock HorizontalAlignment="Center" FontSize="13" Margin="0,4,0,0">
+                <Hyperlink NavigateUri="https://www.elusivedata.io" RequestNavigate="Link_RequestNavigate"
+                           Foreground="{DynamicResource AccentTextBrush}">www.elusivedata.io</Hyperlink>
+            </TextBlock>
+
+            <Border Margin="0,18,0,0" Padding="14,11" CornerRadius="{StaticResource ControlRadius}"
+                    Background="{DynamicResource CardBackgroundBrush}" BorderBrush="{DynamicResource CardBorderBrush}" BorderThickness="1">
+                <TextBlock TextWrapping="Wrap" FontSize="11.5" LineHeight="17" Foreground="{DynamicResource MutedTextBrush}">
+                    <Run FontWeight="SemiBold" Foreground="{DynamicResource SecondaryTextBrush}">Disclaimer.</Run>
+                    This software is provided 'as is' without warranty of any kind. Elusive Data is not responsible for
+                    the accuracy, completeness, or reliability of any information extracted or processed by this tool.
+                    Users should independently verify all results before taking any action based on them. This software
+                    is designed as an aid for forensic analysis and is not a substitute for professional judgment or expertise.
+                </TextBlock>
+            </Border>
+        </StackPanel>
+
+        <Button Content="OK" Style="{StaticResource PrimaryButton}" HorizontalAlignment="Center" Margin="0,20,0,22"
+                IsDefault="True" IsCancel="True" Click="Ok_Click"/>
+    </StackPanel>
+</Window>

@@ -1,0 +1,98 @@
+{
+ "meta": {
+  "generator": "tools/oracle/make_vectors.py",
+  "sqlite": "3.50.4",
+  "protobuf": "7.34.0 (upb)",
+  "python": "3.13.7"
+ },
+ "vectors": [
+  {
+   "serialType": "0",
+   "contentBytes": 0
+  },
+  {
+   "serialType": "8",
+   "contentBytes": 0
+  },
+  {
+   "serialType": "9",
+   "contentBytes": 0
+  },
+  {
+   "serialType": "1",
+   "contentBytes": 1
+  },
+  {
+   "serialType": "2",
+   "contentBytes": 2
+  },
+  {
+   "serialType": "3",
+   "contentBytes": 3
+  },
+  {
+   "serialType": "4",
+   "contentBytes": 4
+  },
+  {
+   "serialType": "5",
+   "contentBytes": 6
+  },
+  {
+   "serialType": "6",
+   "contentBytes": 8
+  },
+  {
+   "serialType": "7",
+   "contentBytes": 8
+  },
+  {
+   "serialType": "13",
+   "contentBytes": 0
+  },
+  {
+   "serialType": "15",
+   "contentBytes": 1
+  },
+  {
+   "serialType": "19",
+   "contentBytes": 3
+  },
+  {
+   "serialType": "127",
+   "contentBytes": 57
+  },
+  {
+   "serialType": "129",
+   "contentBytes": 58
+  },
+  {
+   "serialType": "1013",
+   "contentBytes": 500
+  },
+  {
+   "serialType": "21",
+   "contentBytes": 4
+  },
+  {
+   "serialType": "12",
+   "contentBytes": 0
+  },
+  {
+   "serialType": "14",
+   "contentBytes": 1
+  },
+  {
+   "serialType": "16",
+   "contentBytes": 2
+  },
+  {
+   "serialType": "212",
+   "contentBytes": 100
+  },
+  {
+   "serialType": "6012",
+   "contentBytes": 3000
+  }
+ ]
+}

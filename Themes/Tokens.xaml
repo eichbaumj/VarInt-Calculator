@@ -1,0 +1,40 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- Firefly design tokens that do not change with the theme. The values mirror
+         Styles/FireflyTokens.xaml in the Firefly suite, so the calculator reads as one of the
+         family: Be Vietnam Pro for headings, Inter for body text, Saira for labels and keys,
+         the accent blue for actions, the site yellow for the wordmark. -->
+
+    <FontFamily x:Key="HeadFont">pack://application:,,,/VarIntCalculator;component/Fonts/#Be Vietnam Pro, Segoe UI</FontFamily>
+    <FontFamily x:Key="BodyFont">pack://application:,,,/VarIntCalculator;component/Fonts/#Inter, Segoe UI</FontFamily>
+    <FontFamily x:Key="LabelFont">pack://application:,,,/VarIntCalculator;component/Fonts/#Saira, Segoe UI</FontFamily>
+    <FontFamily x:Key="MonoFont">Consolas, Courier New</FontFamily>
+
+    <Color x:Key="AccentColor">#2B64F8</Color>
+    <SolidColorBrush x:Key="AccentBrush" Color="#2B64F8"/>
+    <SolidColorBrush x:Key="AccentHoverBrush" Color="#1C4FD6"/>
+    <SolidColorBrush x:Key="AccentPressedBrush" Color="#1046DC"/>
+    <SolidColorBrush x:Key="OnAccentBrush" Color="#FFFFFF"/>
+
+    <!-- The wordmark sits on the ribbon, which is dark in every theme, so it keeps the true yellow. -->
+    <SolidColorBrush x:Key="YellowBrush" Color="#FFDE59"/>
+
+    <!-- Destructive actions (Clear, Delete): the site's danger red. The brand red stays for the
+         close button's hover, as on every Firefly window. -->
+    <SolidColorBrush x:Key="DangerBrush" Color="#C62838"/>
+    <SolidColorBrush x:Key="DangerHoverBrush" Color="#A81F2D"/>
+    <SolidColorBrush x:Key="DangerPressedBrush" Color="#8E1A26"/>
+    <SolidColorBrush x:Key="CloseHoverBrush" Color="#EE3D53"/>
+    <SolidColorBrush x:Key="ClosePressedBrush" Color="#C73247"/>
+
+    <SolidColorBrush x:Key="RibbonForegroundBrush" Color="#FFFFFF"/>
+    <SolidColorBrush x:Key="RibbonHoverBrush" Color="#14FFFFFF"/>
+    <SolidColorBrush x:Key="RibbonPressedBrush" Color="#22FFFFFF"/>
+
+    <CornerRadius x:Key="ControlRadius">6</CornerRadius>
+    <CornerRadius x:Key="KeyRadius">8</CornerRadius>
+    <CornerRadius x:Key="CardRadius">12</CornerRadius>
+    <CornerRadius x:Key="SheetRadius">12,12,0,0</CornerRadius>
+
+</ResourceDictionary>
