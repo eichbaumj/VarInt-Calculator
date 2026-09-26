@@ -18,6 +18,19 @@ namespace VarIntCalculator
         /// </summary>
         public static AppTheme? HostTheme { get; private set; }
 
+        /// <summary>
+        /// The host changed its theme while the calculator is open: apply it (still never saved). Raises
+        /// <see cref="HostThemeChanged"/> so an open Settings panel shows the new choice.
+        /// </summary>
+        public static void SetHostTheme(AppTheme theme)
+        {
+            HostTheme = theme;
+            ApplyTheme(theme);
+            HostThemeChanged?.Invoke();
+        }
+
+        public static event Action? HostThemeChanged;
+
         /// <summary>The theme on screen: the host's when there is one, otherwise the saved one.</summary>
         public static AppTheme ActiveTheme => HostTheme ?? Settings.Theme;
 

@@ -68,6 +68,13 @@ namespace VarIntCalculator
                     Keyboard.Focus(this);
             };
             Closing += (_, _) => SaveOnExit();
+            // Opened by Firefly: listen for its theme changes while open (HostThemeMessage).
+            if (App.HostTheme.HasValue)
+            {
+                SourceInitialized += (_, _) =>
+                    System.Windows.Interop.HwndSource.FromHwnd(new System.Windows.Interop.WindowInteropHelper(this).Handle)?.AddHook(HostThemeMessage);
+                App.HostThemeChanged += SyncThemeOptions;
+            }
         }
 
         // ================================================================ model
@@ -587,6 +594,42 @@ namespace VarIntCalculator
                 $"X {N(page.MaxLocal)}  most payload kept on the page\n" +
                 $"M {N(page.MinLocal)}  least kept when it spills\n" +
                 $"  {N(page.OverflowPageCapacity)}  bytes per overflow page";
+        }
+
+        // WM_COPYDATA from Firefly: dwData "FFTH", the theme's name in UTF-16. Any other message passes through.
+        private const int WmCopyData = 0x004A;
+        private const long HostThemeTag = 0x46465448;
+
+        [System.Runtime.InteropServices.StructLayout(System.Runtime.InteropServices.LayoutKind.Sequential)]
+        private struct CopyData
+        {
+            public IntPtr Tag;
+            public int Bytes;
+            public IntPtr Data;
+        }
+
+        private IntPtr HostThemeMessage(IntPtr hwnd, int msg, IntPtr wParam, IntPtr lParam, ref bool handled)
+        {
+            if (msg != WmCopyData || lParam == IntPtr.Zero)
+                return IntPtr.Zero;
+            var data = System.Runtime.InteropServices.Marshal.PtrToStructure<CopyData>(lParam);
+            if (data.Tag.ToInt64() != HostThemeTag || data.Data == IntPtr.Zero || data.Bytes <= 0 || data.Bytes > 64)
+                return IntPtr.Zero;
+            string name = System.Runtime.InteropServices.Marshal.PtrToStringUni(data.Data, data.Bytes / 2);
+            if (Enum.TryParse(name, ignoreCase: true, out AppTheme theme) && Enum.IsDefined(theme))
+                App.SetHostTheme(theme);
+            handled = true;
+            return new IntPtr(1);
+        }
+
+        /// <summary>Shows the host's new theme in the Settings panel's Appearance choice.</summary>
+        private void SyncThemeOptions()
+        {
+            _syncingSettings = true;
+            ThemeDefaultOption.IsChecked = App.ActiveTheme == AppTheme.Default;
+            ThemeDarkOption.IsChecked = App.ActiveTheme == AppTheme.Dark;
+            ThemeLightOption.IsChecked = App.ActiveTheme == AppTheme.Light;
+            _syncingSettings = false;
         }
 
         private void Theme_Checked(object sender, RoutedEventArgs e)
