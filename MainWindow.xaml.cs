@@ -502,9 +502,12 @@ namespace VarIntCalculator
             ReservedError.Visibility = Visibility.Collapsed;
             TableLeafOption.IsChecked = page.Kind == BTreeKind.TableLeaf;
             IndexOption.IsChecked = page.Kind == BTreeKind.Index;
-            ThemeDefaultOption.IsChecked = App.Settings.Theme == AppTheme.Default;
-            ThemeDarkOption.IsChecked = App.Settings.Theme == AppTheme.Dark;
-            ThemeLightOption.IsChecked = App.Settings.Theme == AppTheme.Light;
+            ThemeDefaultOption.IsChecked = App.ActiveTheme == AppTheme.Default;
+            ThemeDarkOption.IsChecked = App.ActiveTheme == AppTheme.Dark;
+            ThemeLightOption.IsChecked = App.ActiveTheme == AppTheme.Light;
+            bool hosted = App.HostTheme.HasValue;
+            ThemeTrack.IsEnabled = !hosted;
+            ThemeHostNote.Visibility = hosted ? Visibility.Visible : Visibility.Collapsed;
             _syncingSettings = false;
 
             UpdatePageFormula();
@@ -588,7 +591,7 @@ namespace VarIntCalculator
 
         private void Theme_Checked(object sender, RoutedEventArgs e)
         {
-            if (_syncingSettings || sender is not RadioButton { Tag: string tag } || !Enum.TryParse(tag, out AppTheme theme))
+            if (_syncingSettings || App.HostTheme.HasValue || sender is not RadioButton { Tag: string tag } || !Enum.TryParse(tag, out AppTheme theme))
                 return;
             App.ApplyTheme(theme);
             App.Settings.Theme = theme;

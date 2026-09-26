@@ -663,7 +663,7 @@
                     </Border>
 
                     <TextBlock Style="{StaticResource Kicker}" controls:Tracking.Text="APPEARANCE" Margin="0,22,0,8"/>
-                    <Border Style="{StaticResource SegmentTrack}">
+                    <Border x:Name="ThemeTrack" Style="{StaticResource SegmentTrack}">
                         <StackPanel Orientation="Horizontal">
                             <RadioButton x:Name="ThemeDefaultOption" Style="{StaticResource Segment}" GroupName="Theme"
                                          Content="Default" Tag="Default" Checked="Theme_Checked"
@@ -674,6 +674,10 @@
                                          Content="Light" Tag="Light" Checked="Theme_Checked"/>
                         </StackPanel>
                     </Border>
+                    <!-- Opened by Firefly with a theme argument: the theme is Firefly's, shown here but set there. -->
+                    <TextBlock x:Name="ThemeHostNote" Text="Follows Firefly's theme. Change it in Firefly's Settings."
+                               FontSize="12" Margin="0,8,0,0" TextWrapping="Wrap" Visibility="Collapsed"
+                               Foreground="{DynamicResource MutedTextBrush}"/>
                 </StackPanel>
             </Border>
         </Grid>

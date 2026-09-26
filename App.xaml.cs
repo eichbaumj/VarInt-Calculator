@@ -11,6 +11,16 @@ namespace VarIntCalculator
 
         public static AppSettings Settings { get; private set; } = new();
 
+        /// <summary>
+        /// The theme the host application chose, when the calculator was opened by Firefly with
+        /// <c>--theme Default|Dark|Light</c>; null when it runs on its own. A host's theme is shown
+        /// but never saved, so the standalone calculator keeps its own choice.
+        /// </summary>
+        public static AppTheme? HostTheme { get; private set; }
+
+        /// <summary>The theme on screen: the host's when there is one, otherwise the saved one.</summary>
+        public static AppTheme ActiveTheme => HostTheme ?? Settings.Theme;
+
         public static string Version { get; } =
             Assembly.GetExecutingAssembly().GetName().Version is { } v ? $"{v.Major}.{v.Minor}.{v.Build}" : "";
 
@@ -20,11 +30,24 @@ namespace VarIntCalculator
             base.OnStartup(e);
 
             Settings = SettingsStore.LoadSettings();
-            ApplyTheme(Settings.Theme);
+            HostTheme = HostThemeFrom(e.Args);
+            ApplyTheme(ActiveTheme);
 
             var window = new MainWindow();
             MainWindow = window;
             window.Show();
+        }
+
+        /// <summary>Reads <c>--theme &lt;name&gt;</c> from the command line; anything else is ignored.</summary>
+        internal static AppTheme? HostThemeFrom(string[] args)
+        {
+            for (int i = 0; i + 1 < args.Length; i++)
+            {
+                if (string.Equals(args[i], "--theme", StringComparison.OrdinalIgnoreCase) &&
+                    Enum.TryParse(args[i + 1], ignoreCase: true, out AppTheme theme) && Enum.IsDefined(theme))
+                    return theme;
+            }
+            return null;
         }
 
         public static void ApplyTheme(AppTheme theme)
